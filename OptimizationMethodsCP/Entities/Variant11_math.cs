@@ -8,10 +8,10 @@ namespace OptimizationMethodsCP.Entities
 {
     public  static class Variant11_math
     {
-        public static double GetFunctionValue(double T1,double T2) {
-            return (T1 - 1000) * Math.Cos(3.14 * 1000 * Math.Sqrt(Math.Pow(T1,2) + Math.Pow(T2,2)));
+        public static float GetFunctionValue(float T1,float T2) {
+            return (float)(800 * (T1 - 1) * Math.Cos(3.14 * 1 * Math.Sqrt(Math.Pow(T1,2) + Math.Pow(T2,2))));
         }
-        public static bool IsLimit(double T1, double T2)
+        public static bool IsLimit(float T1, float T2)
         {
             if (T2 - T1 <= 3)
             {

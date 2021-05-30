@@ -14,18 +14,19 @@ namespace OptimizationMethodsCP.Methods
         public static OptimizationTask.point p_min = new OptimizationTask.point();
         public static void Body() {
             int dc_dig = GetDecimalDigitsCount(OptimizationTask.diffenition);
-            for (double i = OptimizationTask.T1_min;i <= OptimizationTask.T1_max; i += OptimizationTask.diffenition) {
-                i = Math.Round(i, dc_dig);
-                for (double j = OptimizationTask.T2_min; j <= OptimizationTask.T2_max; j += OptimizationTask.diffenition) {
-                    j = Math.Round(j, dc_dig);
+            for (float i = OptimizationTask.T1_min;i <= OptimizationTask.T1_max; i += OptimizationTask.diffenition) {
+                i = (float)Math.Round(i, dc_dig);
+
+                for (float j = OptimizationTask.T2_min; j <= OptimizationTask.T2_max; j += OptimizationTask.diffenition) {
+                    j = (float)Math.Round(j, dc_dig);
                     if (!Variant11_math.IsLimit(i, j)) {
-                        double result = Variant11_math.GetFunctionValue(i, j);
+                        float result = Variant11_math.GetFunctionValue(i, j);
                         if (result > 0)
                         {
                             OptimizationTask.point point = new OptimizationTask.point();
                             point.t1_value = i;
                             point.t2_value = j;
-                            point.f_value = Math.Round(result, dc_dig);
+                            point.f_value = (float)Math.Round(result, dc_dig);
                             points.Add(point);
                         }
 
@@ -44,7 +45,7 @@ namespace OptimizationMethodsCP.Methods
                 }
             }
         }
-        static int GetDecimalDigitsCount(double value)
+        static int GetDecimalDigitsCount(float value)
         {
             string[] str = value.ToString(new System.Globalization.NumberFormatInfo() { NumberDecimalSeparator = "." })
                .Split('.');

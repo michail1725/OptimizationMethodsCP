@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OptimizationMethodsCP.UsersForms;
+using OptimizationMethodsCP.ServiceForms;
 
 namespace OptimizationMethodsCP
 {
@@ -17,7 +18,7 @@ namespace OptimizationMethodsCP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AutoUserForm());
+            Application.Run(new LoginForm());
         }
     }
 }

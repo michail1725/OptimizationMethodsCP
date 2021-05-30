@@ -29,15 +29,12 @@ namespace OptimizationMethodsCP.UsersForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label26 = new System.Windows.Forms.Label();
             this.SolveOptimProblem = new System.Windows.Forms.Button();
-            this.SolveBox = new System.Windows.Forms.GroupBox();
-            this.Graph_definition_numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
             this.SolverMethod_combo = new System.Windows.Forms.ComboBox();
             this.TaskVariant_combo = new System.Windows.Forms.ComboBox();
             this.Variant_textbox = new System.Windows.Forms.TextBox();
@@ -91,10 +88,9 @@ namespace OptimizationMethodsCP.UsersForms
             this.SaveNewData = new System.Windows.Forms.Button();
             this.Tables_comboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DeleteRow = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.SolveBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Graph_definition_numericUpDown)).BeginInit();
             this.TaskBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Solve_diffention_numericUpDown)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -109,27 +105,29 @@ namespace OptimizationMethodsCP.UsersForms
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(0, 12);
+            this.tabControl1.Location = new System.Drawing.Point(4, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(817, 482);
+            this.tabControl1.Size = new System.Drawing.Size(817, 440);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.IsAllowToSelectTab);
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightCyan;
+            this.tabPage1.Controls.Add(this.SolverMethod_combo);
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.SolveOptimProblem);
-            this.tabPage1.Controls.Add(this.SolveBox);
             this.tabPage1.Controls.Add(this.TaskVariant_combo);
             this.tabPage1.Controls.Add(this.Variant_textbox);
             this.tabPage1.Controls.Add(this.TaskBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(809, 456);
+            this.tabPage1.Size = new System.Drawing.Size(809, 414);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Задание";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label26
             // 
@@ -142,7 +140,8 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // SolveOptimProblem
             // 
-            this.SolveOptimProblem.Location = new System.Drawing.Point(635, 419);
+            this.SolveOptimProblem.Enabled = false;
+            this.SolveOptimProblem.Location = new System.Drawing.Point(401, 353);
             this.SolveOptimProblem.Name = "SolveOptimProblem";
             this.SolveOptimProblem.Size = new System.Drawing.Size(168, 31);
             this.SolveOptimProblem.TabIndex = 3;
@@ -150,65 +149,15 @@ namespace OptimizationMethodsCP.UsersForms
             this.SolveOptimProblem.UseVisualStyleBackColor = true;
             this.SolveOptimProblem.Click += new System.EventHandler(this.SolveOptimProblem_Click);
             // 
-            // SolveBox
-            // 
-            this.SolveBox.Controls.Add(this.Graph_definition_numericUpDown);
-            this.SolveBox.Controls.Add(this.label9);
-            this.SolveBox.Controls.Add(this.SolverMethod_combo);
-            this.SolveBox.Location = new System.Drawing.Point(401, 300);
-            this.SolveBox.Name = "SolveBox";
-            this.SolveBox.Size = new System.Drawing.Size(402, 113);
-            this.SolveBox.TabIndex = 16;
-            this.SolveBox.TabStop = false;
-            this.SolveBox.Text = "Параметры решения";
-            // 
-            // Graph_definition_numericUpDown
-            // 
-            this.Graph_definition_numericUpDown.DecimalPlaces = 2;
-            this.Graph_definition_numericUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.Graph_definition_numericUpDown.Location = new System.Drawing.Point(200, 46);
-            this.Graph_definition_numericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.Graph_definition_numericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.Graph_definition_numericUpDown.Name = "Graph_definition_numericUpDown";
-            this.Graph_definition_numericUpDown.Size = new System.Drawing.Size(67, 20);
-            this.Graph_definition_numericUpDown.TabIndex = 2;
-            this.Graph_definition_numericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(179, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Точность отображения графиков:";
-            // 
             // SolverMethod_combo
             // 
             this.SolverMethod_combo.FormattingEnabled = true;
-            this.SolverMethod_combo.Items.AddRange(new object[] {
-            "Метод сканирования"});
-            this.SolverMethod_combo.Location = new System.Drawing.Point(12, 20);
+            this.SolverMethod_combo.Location = new System.Drawing.Point(401, 312);
             this.SolverMethod_combo.Name = "SolverMethod_combo";
             this.SolverMethod_combo.Size = new System.Drawing.Size(161, 21);
             this.SolverMethod_combo.TabIndex = 0;
             this.SolverMethod_combo.Text = "Выберите метод решения";
+            this.SolverMethod_combo.SelectedIndexChanged += new System.EventHandler(this.SolverMethod_combo_SelectedIndexChanged);
             // 
             // TaskVariant_combo
             // 
@@ -226,7 +175,7 @@ namespace OptimizationMethodsCP.UsersForms
             this.Variant_textbox.Multiline = true;
             this.Variant_textbox.Name = "Variant_textbox";
             this.Variant_textbox.ReadOnly = true;
-            this.Variant_textbox.Size = new System.Drawing.Size(377, 364);
+            this.Variant_textbox.Size = new System.Drawing.Size(377, 335);
             this.Variant_textbox.TabIndex = 0;
             // 
             // TaskBox
@@ -280,9 +229,9 @@ namespace OptimizationMethodsCP.UsersForms
             this.SolutionTarget.AutoSize = true;
             this.SolutionTarget.Location = new System.Drawing.Point(89, 69);
             this.SolutionTarget.Name = "SolutionTarget";
-            this.SolutionTarget.Size = new System.Drawing.Size(280, 13);
+            this.SolutionTarget.Size = new System.Drawing.Size(295, 13);
             this.SolutionTarget.TabIndex = 19;
-            this.SolutionTarget.Text = "Минимум себестомости фильтрата за смену 8 часов ";
+            this.SolutionTarget.Text = "Минимум F - себестомости фильтрата за смену 8 часов ";
             // 
             // label12
             // 
@@ -433,6 +382,7 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.MistyRose;
             this.tabPage2.Controls.Add(this.T2_ex_min_textBox);
             this.tabPage2.Controls.Add(this.T1_ex_min_textBox);
             this.tabPage2.Controls.Add(this.label19);
@@ -458,14 +408,14 @@ namespace OptimizationMethodsCP.UsersForms
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(809, 456);
+            this.tabPage2.Size = new System.Drawing.Size(809, 414);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Таблица результатов и 2D-график";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // T2_ex_min_textBox
             // 
-            this.T2_ex_min_textBox.Location = new System.Drawing.Point(363, 420);
+            this.T2_ex_min_textBox.Location = new System.Drawing.Point(377, 388);
             this.T2_ex_min_textBox.Name = "T2_ex_min_textBox";
             this.T2_ex_min_textBox.ReadOnly = true;
             this.T2_ex_min_textBox.Size = new System.Drawing.Size(55, 20);
@@ -473,7 +423,7 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // T1_ex_min_textBox
             // 
-            this.T1_ex_min_textBox.Location = new System.Drawing.Point(266, 420);
+            this.T1_ex_min_textBox.Location = new System.Drawing.Point(280, 388);
             this.T1_ex_min_textBox.Name = "T1_ex_min_textBox";
             this.T1_ex_min_textBox.ReadOnly = true;
             this.T1_ex_min_textBox.Size = new System.Drawing.Size(55, 20);
@@ -482,7 +432,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(327, 424);
+            this.label19.Location = new System.Drawing.Point(341, 392);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(41, 13);
             this.label19.TabIndex = 21;
@@ -491,7 +441,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(239, 423);
+            this.label23.Location = new System.Drawing.Point(253, 391);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(32, 13);
             this.label23.TabIndex = 20;
@@ -500,7 +450,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(156, 423);
+            this.label24.Location = new System.Drawing.Point(170, 391);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(82, 13);
             this.label24.TabIndex = 19;
@@ -508,7 +458,7 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // F_min_textbox
             // 
-            this.F_min_textbox.Location = new System.Drawing.Point(87, 420);
+            this.F_min_textbox.Location = new System.Drawing.Point(101, 388);
             this.F_min_textbox.Name = "F_min_textbox";
             this.F_min_textbox.ReadOnly = true;
             this.F_min_textbox.Size = new System.Drawing.Size(63, 20);
@@ -517,7 +467,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(37, 424);
+            this.label25.Location = new System.Drawing.Point(51, 392);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(44, 13);
             this.label25.TabIndex = 17;
@@ -525,7 +475,7 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // T2_ex_max_textBox
             // 
-            this.T2_ex_max_textBox.Location = new System.Drawing.Point(363, 375);
+            this.T2_ex_max_textBox.Location = new System.Drawing.Point(377, 343);
             this.T2_ex_max_textBox.Name = "T2_ex_max_textBox";
             this.T2_ex_max_textBox.ReadOnly = true;
             this.T2_ex_max_textBox.Size = new System.Drawing.Size(55, 20);
@@ -533,7 +483,7 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // T1_ex_max_textBox
             // 
-            this.T1_ex_max_textBox.Location = new System.Drawing.Point(266, 375);
+            this.T1_ex_max_textBox.Location = new System.Drawing.Point(280, 343);
             this.T1_ex_max_textBox.Name = "T1_ex_max_textBox";
             this.T1_ex_max_textBox.ReadOnly = true;
             this.T1_ex_max_textBox.Size = new System.Drawing.Size(55, 20);
@@ -542,7 +492,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(327, 379);
+            this.label22.Location = new System.Drawing.Point(341, 347);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(41, 13);
             this.label22.TabIndex = 14;
@@ -551,7 +501,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(239, 378);
+            this.label21.Location = new System.Drawing.Point(253, 346);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(32, 13);
             this.label21.TabIndex = 13;
@@ -560,7 +510,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(156, 378);
+            this.label20.Location = new System.Drawing.Point(170, 346);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(82, 13);
             this.label20.TabIndex = 12;
@@ -568,7 +518,7 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // F_max_textbox
             // 
-            this.F_max_textbox.Location = new System.Drawing.Point(87, 375);
+            this.F_max_textbox.Location = new System.Drawing.Point(101, 343);
             this.F_max_textbox.Name = "F_max_textbox";
             this.F_max_textbox.ReadOnly = true;
             this.F_max_textbox.Size = new System.Drawing.Size(63, 20);
@@ -577,7 +527,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(37, 379);
+            this.label18.Location = new System.Drawing.Point(51, 347);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 13);
             this.label18.TabIndex = 8;
@@ -586,7 +536,7 @@ namespace OptimizationMethodsCP.UsersForms
             // SolutionText
             // 
             this.SolutionText.AutoSize = true;
-            this.SolutionText.Location = new System.Drawing.Point(537, 379);
+            this.SolutionText.Location = new System.Drawing.Point(502, 347);
             this.SolutionText.Name = "SolutionText";
             this.SolutionText.Size = new System.Drawing.Size(196, 39);
             this.SolutionText.TabIndex = 7;
@@ -596,7 +546,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(488, 352);
+            this.label16.Location = new System.Drawing.Point(502, 320);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 13);
             this.label16.TabIndex = 6;
@@ -605,7 +555,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(35, 398);
+            this.label15.Location = new System.Drawing.Point(49, 366);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(149, 13);
             this.label15.TabIndex = 5;
@@ -614,7 +564,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(35, 352);
+            this.label14.Location = new System.Drawing.Point(49, 320);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(155, 13);
             this.label14.TabIndex = 4;
@@ -623,7 +573,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(485, 18);
+            this.label11.Location = new System.Drawing.Point(485, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(194, 13);
             this.label11.TabIndex = 3;
@@ -632,7 +582,7 @@ namespace OptimizationMethodsCP.UsersForms
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(32, 18);
+            this.label10.Location = new System.Drawing.Point(6, 3);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(282, 13);
             this.label10.TabIndex = 2;
@@ -645,7 +595,7 @@ namespace OptimizationMethodsCP.UsersForms
             this.Column1,
             this.Column2,
             this.Column3});
-            this.points_dataGridView.Location = new System.Drawing.Point(488, 54);
+            this.points_dataGridView.Location = new System.Drawing.Point(488, 19);
             this.points_dataGridView.Name = "points_dataGridView";
             this.points_dataGridView.ReadOnly = true;
             this.points_dataGridView.RowHeadersVisible = false;
@@ -672,46 +622,53 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            this.chart1.Location = new System.Drawing.Point(8, 34);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            this.chart1.Location = new System.Drawing.Point(9, 17);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(424, 332);
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.MarkerSize = 6;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(457, 299);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.Honeydew;
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(809, 456);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "3D-график";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Lavender;
+            this.groupBox1.Controls.Add(this.DeleteRow);
             this.groupBox1.Controls.Add(this.SaveNewData);
             this.groupBox1.Controls.Add(this.Tables_comboBox);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 500);
+            this.groupBox1.Enabled = false;
+            this.groupBox1.Location = new System.Drawing.Point(4, 442);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(809, 266);
+            this.groupBox1.Size = new System.Drawing.Size(813, 247);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Интерфейс администратора";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // SaveNewData
             // 
             this.SaveNewData.Location = new System.Drawing.Point(9, 222);
             this.SaveNewData.Name = "SaveNewData";
-            this.SaveNewData.Size = new System.Drawing.Size(75, 23);
+            this.SaveNewData.Size = new System.Drawing.Size(165, 23);
             this.SaveNewData.TabIndex = 2;
-            this.SaveNewData.Text = "сохранить";
+            this.SaveNewData.Text = "Сохранить изменения";
             this.SaveNewData.UseVisualStyleBackColor = true;
             this.SaveNewData.Click += new System.EventHandler(this.SaveNewData_Click);
             // 
@@ -720,7 +677,8 @@ namespace OptimizationMethodsCP.UsersForms
             this.Tables_comboBox.FormattingEnabled = true;
             this.Tables_comboBox.Items.AddRange(new object[] {
             "Задания",
-            "Пользователи"});
+            "Пользователи",
+            "Методы"});
             this.Tables_comboBox.Location = new System.Drawing.Point(9, 20);
             this.Tables_comboBox.Name = "Tables_comboBox";
             this.Tables_comboBox.Size = new System.Drawing.Size(121, 21);
@@ -732,24 +690,38 @@ namespace OptimizationMethodsCP.UsersForms
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(9, 51);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(794, 165);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // DeleteRow
+            // 
+            this.DeleteRow.Location = new System.Drawing.Point(189, 222);
+            this.DeleteRow.Name = "DeleteRow";
+            this.DeleteRow.Size = new System.Drawing.Size(181, 23);
+            this.DeleteRow.TabIndex = 3;
+            this.DeleteRow.Text = "Удалить запись";
+            this.DeleteRow.UseVisualStyleBackColor = true;
+            this.DeleteRow.Click += new System.EventHandler(this.DeleteRow_Click);
             // 
             // AutoUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 767);
+            this.BackColor = System.Drawing.Color.Lavender;
+            this.ClientSize = new System.Drawing.Size(820, 690);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(836, 729);
+            this.MinimumSize = new System.Drawing.Size(836, 729);
             this.Name = "AutoUserForm";
+            this.ShowIcon = false;
             this.Text = "Researcher";
+            this.Load += new System.EventHandler(this.AutoUserForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.SolveBox.ResumeLayout(false);
-            this.SolveBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Graph_definition_numericUpDown)).EndInit();
             this.TaskBox.ResumeLayout(false);
             this.TaskBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Solve_diffention_numericUpDown)).EndInit();
@@ -768,9 +740,6 @@ namespace OptimizationMethodsCP.UsersForms
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button SolveOptimProblem;
-        private System.Windows.Forms.GroupBox SolveBox;
-        private System.Windows.Forms.NumericUpDown Graph_definition_numericUpDown;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox SolverMethod_combo;
         private System.Windows.Forms.ComboBox TaskVariant_combo;
         private System.Windows.Forms.TextBox Variant_textbox;
@@ -825,5 +794,6 @@ namespace OptimizationMethodsCP.UsersForms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button DeleteRow;
     }
 }
