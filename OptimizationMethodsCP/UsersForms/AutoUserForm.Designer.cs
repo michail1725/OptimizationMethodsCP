@@ -29,13 +29,13 @@ namespace OptimizationMethodsCP.UsersForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.SolverMethod_combo = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.SolveOptimProblem = new System.Windows.Forms.Button();
-            this.SolverMethod_combo = new System.Windows.Forms.ComboBox();
             this.TaskVariant_combo = new System.Windows.Forms.ComboBox();
             this.Variant_textbox = new System.Windows.Forms.TextBox();
             this.TaskBox = new System.Windows.Forms.GroupBox();
@@ -79,16 +79,13 @@ namespace OptimizationMethodsCP.UsersForms
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.points_dataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DeleteRow = new System.Windows.Forms.Button();
             this.SaveNewData = new System.Windows.Forms.Button();
             this.Tables_comboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DeleteRow = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.TaskBox.SuspendLayout();
@@ -129,6 +126,16 @@ namespace OptimizationMethodsCP.UsersForms
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Задание";
             // 
+            // SolverMethod_combo
+            // 
+            this.SolverMethod_combo.FormattingEnabled = true;
+            this.SolverMethod_combo.Location = new System.Drawing.Point(401, 312);
+            this.SolverMethod_combo.Name = "SolverMethod_combo";
+            this.SolverMethod_combo.Size = new System.Drawing.Size(161, 21);
+            this.SolverMethod_combo.TabIndex = 0;
+            this.SolverMethod_combo.Text = "Выберите метод решения";
+            this.SolverMethod_combo.SelectedIndexChanged += new System.EventHandler(this.SolverMethod_combo_SelectedIndexChanged);
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -148,16 +155,6 @@ namespace OptimizationMethodsCP.UsersForms
             this.SolveOptimProblem.Text = "Решить задачу оптимизации";
             this.SolveOptimProblem.UseVisualStyleBackColor = true;
             this.SolveOptimProblem.Click += new System.EventHandler(this.SolveOptimProblem_Click);
-            // 
-            // SolverMethod_combo
-            // 
-            this.SolverMethod_combo.FormattingEnabled = true;
-            this.SolverMethod_combo.Location = new System.Drawing.Point(401, 312);
-            this.SolverMethod_combo.Name = "SolverMethod_combo";
-            this.SolverMethod_combo.Size = new System.Drawing.Size(161, 21);
-            this.SolverMethod_combo.TabIndex = 0;
-            this.SolverMethod_combo.Text = "Выберите метод решения";
-            this.SolverMethod_combo.SelectedIndexChanged += new System.EventHandler(this.SolverMethod_combo_SelectedIndexChanged);
             // 
             // TaskVariant_combo
             // 
@@ -590,11 +587,8 @@ namespace OptimizationMethodsCP.UsersForms
             // 
             // points_dataGridView
             // 
+            this.points_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.points_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.points_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             this.points_dataGridView.Location = new System.Drawing.Point(488, 19);
             this.points_dataGridView.Name = "points_dataGridView";
             this.points_dataGridView.ReadOnly = true;
@@ -602,36 +596,18 @@ namespace OptimizationMethodsCP.UsersForms
             this.points_dataGridView.Size = new System.Drawing.Size(297, 282);
             this.points_dataGridView.TabIndex = 1;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "T1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "T2";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "F";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(9, 17);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series3.MarkerSize = 6;
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.MarkerSize = 6;
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(457, 299);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -642,7 +618,7 @@ namespace OptimizationMethodsCP.UsersForms
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(809, 456);
+            this.tabPage3.Size = new System.Drawing.Size(809, 414);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "3D-график";
             // 
@@ -661,6 +637,16 @@ namespace OptimizationMethodsCP.UsersForms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Интерфейс администратора";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // DeleteRow
+            // 
+            this.DeleteRow.Location = new System.Drawing.Point(189, 222);
+            this.DeleteRow.Name = "DeleteRow";
+            this.DeleteRow.Size = new System.Drawing.Size(181, 23);
+            this.DeleteRow.TabIndex = 3;
+            this.DeleteRow.Text = "Удалить запись";
+            this.DeleteRow.UseVisualStyleBackColor = true;
+            this.DeleteRow.Click += new System.EventHandler(this.DeleteRow_Click);
             // 
             // SaveNewData
             // 
@@ -694,16 +680,6 @@ namespace OptimizationMethodsCP.UsersForms
             this.dataGridView1.Size = new System.Drawing.Size(794, 165);
             this.dataGridView1.TabIndex = 0;
             // 
-            // DeleteRow
-            // 
-            this.DeleteRow.Location = new System.Drawing.Point(189, 222);
-            this.DeleteRow.Name = "DeleteRow";
-            this.DeleteRow.Size = new System.Drawing.Size(181, 23);
-            this.DeleteRow.TabIndex = 3;
-            this.DeleteRow.Text = "Удалить запись";
-            this.DeleteRow.UseVisualStyleBackColor = true;
-            this.DeleteRow.Click += new System.EventHandler(this.DeleteRow_Click);
-            // 
             // AutoUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,6 +693,7 @@ namespace OptimizationMethodsCP.UsersForms
             this.MinimumSize = new System.Drawing.Size(836, 729);
             this.Name = "AutoUserForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Researcher";
             this.Load += new System.EventHandler(this.AutoUserForm_Load);
             this.tabControl1.ResumeLayout(false);
@@ -791,9 +768,6 @@ namespace OptimizationMethodsCP.UsersForms
         private System.Windows.Forms.ComboBox Tables_comboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button DeleteRow;
     }
 }

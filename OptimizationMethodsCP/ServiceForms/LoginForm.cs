@@ -35,7 +35,8 @@ namespace OptimizationMethodsCP.ServiceForms
                 Command.ExecuteNonQuery();
                 Connect.Close();
             }
-            comboBox1.SelectedItem = 0;
+            comboBox1.SelectedIndex = 0;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -80,7 +80,8 @@ namespace OptimizationMethodsCP.UsersForms
                 SolverMethod_combo.SelectedIndex = -1;
                 SolverMethod_combo.Text = "Выберите метод решения";
             }
-
+            
+            Tables_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
@@ -141,8 +142,13 @@ namespace OptimizationMethodsCP.UsersForms
             OptimizationTask.T2_min = (float)Convert.ToDouble(T2_min_value_textBox.Text);
             OptimizationTask.T2_max = (float)Convert.ToDouble(T2_max_value_textBox.Text);
             Scaning.Body();
+            //points_dataGridView.Columns.Add("T1", "T1");
+            //points_dataGridView.Columns.Add("T2", "T2");
+            //points_dataGridView.Columns.Add("F", "F");
+            points_dataGridView.DataSource = Scaning.dt;
             foreach (OptimizationTask.point p in Scaning.points) {
-                points_dataGridView.Rows.Add(p.t1_value,p.t2_value,p.f_value);
+                
+                //points_dataGridView.Rows.Add(p.t1_value, p.t2_value, p.f_value);
                 double S = p.f_value;
                 S = S >= 1000 ? Math.Round(S / 100, 0) * 100 : Math.Round(S / 10, 0) * 10;
                 if (S == 50)

@@ -42,24 +42,24 @@ namespace OptimizationMethodsCP.ServiceForms
             this.comboBox1.Items.AddRange(new object[] {
             "Администратор",
             "Пользователь"});
-            this.comboBox1.Location = new System.Drawing.Point(27, 58);
+            this.comboBox1.Location = new System.Drawing.Point(22, 29);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(207, 21);
+            this.comboBox1.Size = new System.Drawing.Size(215, 21);
             this.comboBox1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(27, 112);
+            this.textBox1.Location = new System.Drawing.Point(22, 83);
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
+            this.textBox1.Size = new System.Drawing.Size(215, 20);
             this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(156, 154);
+            this.button1.Location = new System.Drawing.Point(151, 125);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 32);
+            this.button1.Size = new System.Drawing.Size(86, 34);
             this.button1.TabIndex = 2;
             this.button1.Text = "Войти";
             this.button1.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@ namespace OptimizationMethodsCP.ServiceForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 30);
+            this.label1.Location = new System.Drawing.Point(19, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace OptimizationMethodsCP.ServiceForms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 93);
+            this.label2.Location = new System.Drawing.Point(19, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 4;
@@ -88,7 +88,7 @@ namespace OptimizationMethodsCP.ServiceForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(258, 198);
+            this.ClientSize = new System.Drawing.Size(249, 162);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
